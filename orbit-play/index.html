@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>星引 · 引力玩具</title><meta name="description" content="拖拽发射星球，观察引力、轨道和碰撞，亲手搭一个小太阳系。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230a1025'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' fill='none' stroke='%239bafff' stroke-width='2' transform='rotate(-30 16 16)'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23ffca76'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><main>
+<header><a class="brand" href="./" aria-label="星引首页"><span class="brand-mark">✦</span><span>星引<small>引力玩具</small></span></a><div class="header-note">你的下一颗星，会去哪里？</div><button id="reset" class="quiet">重新开始</button></header>
+<div class="layout">
+<section class="universe" aria-label="引力模拟游玩区域">
+  <div class="canvas-heading"><span id="scene-title">一个小太阳系</span><div><button id="trails" aria-pressed="true">轨迹：开</button><button id="pause" aria-pressed="false">暂停</button></div></div>
+  <canvas id="space" aria-label="左键拖拽发射星球，右键拖拽平移画面；触屏支持双指平移缩放" tabindex="0"></canvas>
+  <div class="canvas-help" id="canvas-help">在空白处按住并拖动，松开就发射。箭头指向发射方向。</div>
+  <div class="canvas-bottom"><span><b id="body-count">5</b> 个天体</span><span id="collision-count">0 次碰撞</span><span id="elapsed">0 秒</span><div class="zoom"><button id="zoom-out" aria-label="缩小视野">−</button><button id="fit">全景</button><button id="zoom-in" aria-label="放大视野">＋</button></div></div>
+</section>
+<aside class="controls" aria-label="星球与场景控制">
+<section><div class="section-label">01 / 加入你的星球</div><div class="types" role="group" aria-label="天体类型"><button data-kind="planet" aria-pressed="true"><i class="planet-dot"></i>行星</button><button data-kind="star" aria-pressed="false"><i class="star-dot"></i>恒星</button><button data-kind="asteroid" aria-pressed="false"><i class="asteroid-dot"></i>陨石</button></div><label class="range-label" for="mass">质量<span id="mass-value">24</span></label><input id="mass" type="range" min="1" max="80" value="24"><p class="subtle">恒星引力更强，陨石更轻。碰撞后会合并。</p>
+<div class="mode" role="group" aria-label="画布操作"><button id="launch" aria-pressed="true">拖拽发射</button><button id="orbit" aria-pressed="false">一键环绕</button><button id="pan" aria-pressed="false">拖动画面</button></div><p class="mode-tip" id="mode-tip">从起点拖向终点，拖得越长，速度越快。</p></section>
+<section><div class="section-label">02 / 换一个宇宙</div><div class="presets"><button data-scene="solar" aria-pressed="true"><span>☀</span><div>小太阳系<small>从一颗太阳开始</small></div></button><button data-scene="binary" aria-pressed="false"><span>✧</span><div>双星之舞<small>两颗恒星互相绕行</small></div></button><button data-scene="collision" aria-pressed="false"><span>✺</span><div>碰撞实验<small>看轨迹交会、天体合并</small></div></button><button data-scene="empty" aria-pressed="false"><span>＋</span><div>空白宇宙<small>从零创造你的星系</small></div></button></div></section>
+<section class="time-controls"><label class="range-label" for="speed">时间速度<span id="speed-value">1×</span></label><input id="speed" type="range" min="0.25" max="3" step="0.25" value="1"></section>
+</aside>
+</div>
+<footer><div class="mission"><span>小挑战</span><p id="mission">发射一颗行星，让它稳定绕行 20 秒。</p></div><p>右键拖动 平移 · 双指 平移缩放 · 空格轻按 暂停 · 右键单击 删除</p><span class="simulation-note">趣味引力模拟，距离与时间不代表真实天文尺度。</span></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+</main><script src="physics.js"></script><script src="app.js"></script></body></html>
