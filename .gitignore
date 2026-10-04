@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.browser-check/
+.vite/
+preview*.png
+*.tsbuildinfo
+.env*
+*.tar
+prepare.cjs
+finish-prepare.cjs
+check-browser.cjs
+deploy.cjs
+deployment-result.json

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>沙间 · 种一片像素绿洲</title>
+  <meta name="description" content="撒一点沙，倒一点水，给思绪放个小假。一个本地落沙解压沙盒。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23171d28'/%3E%3Cpath d='M5 25L13 10l5 9 4-6 6 12' fill='%23e7bf74'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><div><div class="eyebrow">GROW A LITTLE WORLD</div><h1>沙间<span>种一片像素绿洲</span></h1></div><div class="live"><i></i>给小世界一点生命</div></header>
+  <div class="scene-bar"><div class="scenes"><span>从这里开始</span><button id="oasis">🌱 雨林生长</button><button id="dam">💧 筑坝蓄水</button><button id="wildfire">🔥 森林与火</button></div><button id="rain" aria-pressed="false">☁ 下雨：关</button></div>
+  <section class="workspace" aria-label="落沙沙盒">
+    <div class="topbar"><span id="material-label">沙子 · 堆起一座小山</span><div class="actions"><button id="pause">Ⅱ 暂停</button><button id="save">↗ 保存画面</button><button id="clear">清空</button></div></div>
+    <div class="canvas-wrap"><canvas id="sandbox" width="320" height="180" aria-label="用鼠标或手指绘制材料的生态沙盒画布"></canvas><div id="hint">撒下种子，再给它一点水。</div></div>
+    <div class="bottom-bar"><span><i class="status-dot"></i><span id="status">正在流动</span></span><span id="count">0 颗粒子</span><span>320 × 180 的小世界</span></div>
+  </section>
+  <section class="tools" aria-label="绘画工具"><div class="materials" id="materials"></div><div class="brush"><label for="size">笔刷 <span id="size-value">6</span></label><input id="size" type="range" min="1" max="16" value="6"></div></section>
+  <div class="recipe-bar"><span>🌱 种子 + 湿土 → 树干与绿叶</span><span>💧 雨水 → 下渗 · 石头不透水</span><span>🌿 适量水 → 生长 · 久淹 → 枯死</span><span>🔥 火 + 植物 → 燃烧 · 水 → 灭火</span></div>
+  <footer><span id="story">先造地面，再播种浇水。也可以点一个场景，观察它自己生长。</span><span>空格 暂停 · 1–9 / 0 切换材料 · 右键 擦除</span></footer>
+</main>
+<script src="simulation.js"></script><script src="app.js"></script>
+</body></html>
